@@ -3,17 +3,26 @@
 <head>
     <meta charset="utf-8">
     
-    <title>Archive | YoungHeaKim&#39;s Blog</title>
+    <title>최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT) | YoungHeaKim&#39;s Blog</title>
     
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta property="og:type" content="website">
-<meta property="og:title" content="YoungHeaKim&#39;s Blog">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+        <meta name="keywords" content="JAVASCRIPT,알고리즘,Algorithm" />
+    
+    <meta name="description" content="최단 거리 1차원 점의 쌍 구하기문제1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.   풀이123456789">
+<meta name="keywords" content="JAVASCRIPT,알고리즘,Algorithm">
+<meta property="og:type" content="article">
+<meta property="og:title" content="최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT)">
+<meta property="og:url" content="http://yoursite.com/2017/08/15/js(daum)/index.html">
 <meta property="og:site_name" content="YoungHeaKim&#39;s Blog">
+<meta property="og:description" content="최단 거리 1차원 점의 쌍 구하기문제1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.   풀이123456789">
 <meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/image/js.png">
+<meta property="og:updated_time" content="2017-09-17T10:14:23.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="YoungHeaKim&#39;s Blog">
+<meta name="twitter:title" content="최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT)">
+<meta name="twitter:description" content="최단 거리 1차원 점의 쌍 구하기문제1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.   풀이123456789">
+<meta name="twitter:image" content="http://yoursite.com/image/js.png">
     
 
     
@@ -120,326 +129,129 @@
                         <div class="main-body-header">
     <h1 class="header">
     
-    <i class="icon fa fa-archive"></i>Archive
+    <a class="page-title-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/알고리즘-Algorithm/최단-거리-1차원-점의-쌍-구하기/">최단 거리 1차원 점의 쌍 구하기</a>
     </h1>
 </div>
                         <div class="main-body-content">
-                            
-
-    
-    
+                            <article id="post-js(daum)" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
         
-        
-        <section class="archives-wrap">
-            <div class="archive-year-wrap">
-                <a href="/archives/2017" class="archive-year"><i class="icon fa fa-calendar-o"></i>2017</a>
-            </div>
-            <div class="archives">
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/16/js(EvenOrOdd)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="짝수와 홀수(JAVASCRIPT)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/16/js(EvenOrOdd)/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/짝수와-홀수/">짝수와 홀수</a>
-            </div>
-            <div class="date"><time datetime="2017-08-16T09:54:10.000Z" itemprop="datePublished">2017-08-16</time></div>
-        </div>
-        
+            <header class="article-header">
+                
     
         <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/16/js(EvenOrOdd)/">짝수와 홀수(JAVASCRIPT)</a>
+        최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT)
         </h1>
     
 
-        <p class="article-excerpt">
-            
-짝수와 홀수문제evenOrOdd 함수는 정수 num을 매개변수로 받는다. num은 1이상의 정수이며, num이 음수인 경우는 없다. num이 짝수일 경우 ‘Even’을 반환하고 홀수인 경우 ‘Odd’를 반환하도록 evenOrOdd에 코드를 작성하라.  
-풀이(if문)12345678910111213// If문function EvenOrOdd(num) &#1
-        </p>
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/08/15/js(daum)/" class="article-date">
+            <time datetime="2017-08-15T09:54:10.000Z" itemprop="datePublished">2017-08-15</time>
+        </a>
     </div>
-</article>
-    
 
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/16/js(searchEight)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="원하는 숫자 찾기(JAVASCRIPT)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/16/js(searchEight)/">0</span>
-    
-</span>
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Algorithm/">Algorithm</a>, <a class="tag-link" href="/tags/JAVASCRIPT/">JAVASCRIPT</a>, <a class="tag-link" href="/tags/알고리즘/">알고리즘</a>
+    </div>
 
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/원하는-숫자-찾기/">원하는 숫자 찾기</a>
             </div>
-            <div class="date"><time datetime="2017-08-16T09:54:10.000Z" itemprop="datePublished">2017-08-16</time></div>
-        </div>
         
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/16/js(searchEight)/">원하는 숫자 찾기(JAVASCRIPT)</a>
-        </h1>
-    
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/image/js.png" alt=""></p>
+<h1 id="최단-거리-1차원-점의-쌍-구하기"><a href="#최단-거리-1차원-점의-쌍-구하기" class="headerlink" title="최단 거리 1차원 점의 쌍 구하기"></a>최단 거리 1차원 점의 쌍 구하기</h1><h2 id="문제"><a href="#문제" class="headerlink" title="문제"></a>문제</h2><p>1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.  </p>
+<h2 id="풀이"><a href="#풀이" class="headerlink" title="풀이"></a>풀이</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">findMinDistance</span>(<span class="params">array</span>)</span>&#123;</div><div class="line">  <span class="comment">// return용 배열(최단거리)</span></div><div class="line">  <span class="keyword">var</span> shortests = [];</div><div class="line">  <span class="comment">// 두점간의 최단거리</span></div><div class="line">  <span class="keyword">var</span> minDistance = <span class="built_in">Number</span>.MAX_VALUE;</div><div class="line">  </div><div class="line">  <span class="comment">// reduce를 사용하여 배열에서 자기자신과 바로 전 값을 비교하여 준다.  </span></div><div class="line">  array.reduce(<span class="function"><span class="keyword">function</span> (<span class="params">pre, cur</span>) </span>&#123;</div><div class="line">    <span class="comment">// distance라는 변수를 선언해주어 현재값과 전값을 빼주어 그 차이를 저장을 해준다.</span></div><div class="line">    <span class="keyword">var</span> distance = <span class="built_in">Math</span>.abs(pre - cur);</div><div class="line">    </div><div class="line">    <span class="comment">// 두 점간의 거리가 지금까지 조사된 최단 거리(이때 위에서 저장한 distance의 값과 다시 재할당된 minDistance의 값을 비교해 준다.)</span></div><div class="line">    <span class="keyword">if</span> (distance === minDistance)&#123;</div><div class="line">      <span class="comment">// 최단 거리가 점점 짧아지는데 제일 짧은 distance와 갔다면 push메소드를 사용하여 조건을 만족하는 두 수를 배열의 형태로 만들어 뒤에 저장시켜준다.  </span></div><div class="line">      shortests.push([pre, cur]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">// 두 점간의 거리가 최단 거리이면</span></div><div class="line">    <span class="keyword">if</span> (distance &lt; minDistance)&#123;</div><div class="line">      <span class="comment">// distance값과 minDistance값을 비교하여 그것보다 작으면 mindistance에 세로 할당하여 넣어준다.</span></div><div class="line">      minDistance = distance ;</div><div class="line">      <span class="comment">// shortests에 새로 배열의 형태로 값을 할당한다.</span></div><div class="line">      shortests = [[pre, cur]];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> cur;</div><div class="line">  &#125;);</div><div class="line">  <span class="keyword">return</span> shortests;</div><div class="line">  </div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 1차원 점의 배열</span></div><div class="line"><span class="keyword">var</span> array = [<span class="number">1</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">13</span>, <span class="number">17</span>, <span class="number">20</span>, <span class="number">23</span>, <span class="number">24</span>];</div><div class="line"><span class="built_in">console</span>.log(findMinDistance(array)); <span class="comment">// [[3, 4], [23, 24]]</span></div><div class="line"><span class="keyword">var</span> array= [<span class="number">-5</span>, <span class="number">-4</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">20</span>, <span class="number">23</span>, <span class="number">24</span>];</div><div class="line"><span class="built_in">console</span>.log(findMinDistance(array)); <span class="comment">// [ [ -5, -4 ], [ 1, 2 ], [ 2, 3 ], [ 23, 24 ] ]</span></div></pre></td></tr></table></figure>
+<h1 id="문제를-풀며-느낀점"><a href="#문제를-풀며-느낀점" class="headerlink" title="문제를 풀며 느낀점"></a>문제를 풀며 느낀점</h1><ul>
+<li>Number의 메소드들을 사용하는 법을 배웠다.  </li>
+<li>새로운 배열을 만들어 배열안에 배열을 넣는 법등을 이 문제를 통해 알게 되었다.  </li>
+</ul>
 
-        <p class="article-excerpt">
+        </div>
+        <footer class="article-footer">
             
-1 ~ 10,000의 숫자 중 8이 등장하는 횟수 구하기문제1부터 10,000까지 8이라는 숫자가 총 몇번 나오는가? 이를 구하는 함수를 완성하라.   
 
-8이 포함되어 있는 숫자의 갯수를 카운팅 하는 것이 아니라 8이라는 숫자를 모두 카운팅 해야 한다.
-(※ 예를들어 8808은 3, 8888은 4로 카운팅 해야 함)
 
-풀이12345678910111213
-        </p>
+
+    <a data-url="http://yoursite.com/2017/08/15/js(daum)/" data-id="cj7olil9o00053f3fke6wpts7" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
     </div>
 </article>
-    
-        </div>
-    
 
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/15/js(daum)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT)" class="thumbnail-image"></span>
-    
+    <section id="comments">
     
         
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/15/js(daum)/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/최단-거리-1차원-점의-쌍-구하기/">최단 거리 1차원 점의 쌍 구하기</a>
-            </div>
-            <div class="date"><time datetime="2017-08-15T09:54:10.000Z" itemprop="datePublished">2017-08-15</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/15/js(daum)/">최단 거리 1차원 점의 쌍 구하기(JAVASCRIPT)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-최단 거리 1차원 점의 쌍 구하기문제1차원의 점들이 주어졌을 때, 그 중 가장 거리가 짧은 것(들)의 쌍을 배열로 반환하는 함수를 작성하라. (단 점들의 배열은 모두 정렬되어있다고 가정한다.) 예를들어 [1, 3, 4, 8, 13, 17, 20, 23, 24]이 주어졌다면, 결과값은 [[3, 4], [23, 24]]가 될 것이다.  
-풀이123456789
-        </p>
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
     </div>
-</article>
-    
 
     
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/14/js(checkPalindrom)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="CheckPalindrom(JAVASCRIPT)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/14/js(checkPalindrom)/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/CheckPalindrom/">CheckPalindrom</a>
-            </div>
-            <div class="date"><time datetime="2017-08-14T09:54:10.000Z" itemprop="datePublished">2017-08-14</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/14/js(checkPalindrom)/">CheckPalindrom(JAVASCRIPT)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-CheckPalindrom문제단어를 거꾸로해도 거꾸로 하지 않은 단어와 같은 단어인지 체크해주어서 맞으면 true를 반환하고 틀리면 false를 반환하여라.  
-풀이(1번)12345678910111213141516171819202122function checkPalindrom(str)&#123;  // 단어를 체크해준다.  var strReverse = 
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-    
-    
-    
-    
-        <div class="article-row">
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/09/ja(day)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="날짜의 요일 찾기(JAVASCRIPT)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/09/ja(day)/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/요일-찾기/">요일 찾기</a>
-            </div>
-            <div class="date"><time datetime="2017-08-09T09:54:10.000Z" itemprop="datePublished">2017-08-09</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/09/ja(day)/">날짜의 요일 찾기(JAVASCRIPT)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-날짜의 요일 찾기아무 연도와 날짜를 입력하면 그 날의 요일을 찾아주는 알고리즘 문제이다.   
-1234567891011function getDayName(a,b)&#123;  var today = new Date(2016, a-1, b);  var dayNames = ['(SUN)', '(MON)', '(TUE)', '(WED)', '(THU)', '(F
-        </p>
-    </div>
-</article>
-    
-
-    
-    
-    
-    
-        <article class="article article-summary">
-    <div class="article-summary-inner">
-        
-        <a href="/2017/08/09/js(string)/" class="thumbnail">
-    
-    
-        <span style="background-image:url(/image/js.png)" alt="NumPY(JAVASCRIPT)" class="thumbnail-image"></span>
-    
-    
-        
-<span class="comment-counter">
-    <i class="fa fa-comments-o"></i>
-    
-        <span class="disqus-comment-count" data-disqus-identifier="" data-disqus-url="http://yoursite.com/2017/08/09/js(string)/">0</span>
-    
-</span>
-
-
-    
-</a>
-
-        
-        <div class="article-meta">
-            <div class="category">
-            <a class="article-category-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/알고리즘-Algorithm/NumPY/">NumPY</a>
-            </div>
-            <div class="date"><time datetime="2017-08-09T09:54:10.000Z" itemprop="datePublished">2017-08-09</time></div>
-        </div>
-        
-    
-        <h1 class="article-title" itemprop="name">
-        <a href="/2017/08/09/js(string)/">NumPY(JAVASCRIPT)</a>
-        </h1>
-    
-
-        <p class="article-excerpt">
-            
-NumPY문제numPY함수는 대문자와 소문자가 섞여있는 문자열 s를 매개변수로 입력받는다. 대소문자를 구별하지 않으며 s에 ‘p’의 개수와 ‘y’의 개수를 비교해 같으면 true, 다르면 false를 리턴하도록 함수를 완성하라. ‘p’, ‘y’ 모두 하나도 없는 경우는 항상 true를 리턴한다. 예를들어 s가 ‘pPoooyY’면 true를 리턴하고 ‘Py
-        </p>
-    </div>
-</article>
-    
-        </div>
-    
-
-
-    </div></section>
-
+    </section>
 
 
                         </div>
@@ -476,6 +288,29 @@ NumPY문제numPY함수는 대문자와 소문자가 섞여있는 문자열 s를 
             
         </ul>
     </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/16/js(searchEight)/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            원하는 숫자 찾기(JAVASCRIPT)
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/08/14/js(checkPalindrom)/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">CheckPalindrom(JAVASCRIPT)</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
     
     <div class="widgets-container">
         
@@ -673,11 +508,13 @@ NumPY문제numPY함수는 대문자와 소문자가 섞여있는 문자열 s를 
     var disqus_shortname = 'hexo-theme-hueman';
     
     
+    var disqus_url = 'http://yoursite.com/2017/08/15/js(daum)/';
+    
     (function() {
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
     })();
     </script>
