@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    
+    <title>Passport | YoungHeaKim&#39;s Blog</title>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+        <meta name="keywords" content="Node.js,passport" />
+    
+    <meta name="description" content="WPSN PassportPassport는 다양한 인증 수단을 지원할 수 있도록 추상화된 인증 미들웨어입니다.   StrategyPassport는 인증 절차를 정의하기 위해 strategy라는 개념을 사용특정 인증 방식에 대해 정해진 방식대로 strategy를 구현하기만 하면, express와 같은 웹 서버와 쉽게 연동할 수 있다.12345678910111">
+<meta name="keywords" content="Node.js,passport">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Passport">
+<meta property="og:url" content="http://yoursite.com/2017/08/19/passport/index.html">
+<meta property="og:site_name" content="YoungHeaKim&#39;s Blog">
+<meta property="og:description" content="WPSN PassportPassport는 다양한 인증 수단을 지원할 수 있도록 추상화된 인증 미들웨어입니다.   StrategyPassport는 인증 절차를 정의하기 위해 strategy라는 개념을 사용특정 인증 방식에 대해 정해진 방식대로 strategy를 구현하기만 하면, express와 같은 웹 서버와 쉽게 연동할 수 있다.12345678910111">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/image/node.jpeg">
+<meta property="og:updated_time" content="2017-09-23T12:57:13.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Passport">
+<meta name="twitter:description" content="WPSN PassportPassport는 다양한 인증 수단을 지원할 수 있도록 추상화된 인증 미들웨어입니다.   StrategyPassport는 인증 절차를 정의하기 위해 strategy라는 개념을 사용특정 인증 방식에 대해 정해진 방식대로 strategy를 구현하기만 하면, express와 같은 웹 서버와 쉽게 연동할 수 있다.12345678910111">
+<meta name="twitter:image" content="http://yoursite.com/image/node.jpeg">
+    
+
+    
+
+    
+
+    <link rel="stylesheet" href="/libs/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/libs/titillium-web/styles.css">
+    <link rel="stylesheet" href="/libs/source-code-pro/styles.css">
+
+    <link rel="stylesheet" href="/css/style.css">
+
+    <script src="/libs/jquery/2.0.3/jquery.min.js"></script>
+    
+    
+        <link rel="stylesheet" href="/libs/lightgallery/css/lightgallery.min.css">
+    
+    
+        <link rel="stylesheet" href="/libs/justified-gallery/justifiedGallery.min.css">
+    
+    
+    
+
+
+</head>
+
+<body>
+    <div id="wrap">
+        <header id="header">
+    <div id="header-outer" class="outer">
+        <div class="container">
+            <div class="container-inner">
+                <div id="header-title">
+                    <h1 class="logo-wrap">
+                        <a href="/" class="logo"></a>
+                    </h1>
+                    
+                </div>
+                <div id="header-inner" class="nav-container">
+                    <a id="main-nav-toggle" class="nav-icon fa fa-bars"></a>
+                    <div class="nav-container-inner">
+                        <ul id="main-nav">
+                            
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="/">Home</a>
+                                </li>
+                            
+                                        <ul class="main-nav-list"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/GIT/">GIT</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/GIT/FORK/">FORK</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/">Node.js</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/CSRF-공격-방어/">CSRF 공격 방어</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/Soket-io/">Soket.io</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/Node-js/로그인-연동/">로그인 연동</a></li></ul></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><ul class="main-nav-list-child"><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/CheckPalindrom/">CheckPalindrom</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/NumPY/">NumPY</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/요일-찾기/">요일 찾기</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/원하는-숫자-찾기/">원하는 숫자 찾기</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/짝수와-홀수/">짝수와 홀수</a></li><li class="main-nav-list-item"><a class="main-nav-list-link" href="/categories/알고리즘-Algorithm/최단-거리-1차원-점의-쌍-구하기/">최단 거리 1차원 점의 쌍 구하기</a></li></ul></li></ul>
+                                    
+                                <li class="main-nav-list-item" >
+                                    <a class="main-nav-list-link" href="https://github.com/YoungHeaKim">About</a>
+                                </li>
+                            
+                        </ul>
+                        <nav id="sub-nav">
+                            <div id="search-form-wrap">
+
+    <form class="search-form">
+        <input type="text" class="ins-search-input search-form-input" placeholder="Search" />
+        <button type="submit" class="search-form-submit"></button>
+    </form>
+    <div class="ins-search">
+    <div class="ins-search-mask"></div>
+    <div class="ins-search-container">
+        <div class="ins-input-wrapper">
+            <input type="text" class="ins-search-input" placeholder="Type something..." />
+            <span class="ins-close ins-selectable"><i class="fa fa-times-circle"></i></span>
+        </div>
+        <div class="ins-section-wrapper">
+            <div class="ins-section-container"></div>
+        </div>
+    </div>
+</div>
+<script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+</div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+        <div class="container">
+            <div class="main-body container-inner">
+                <div class="main-body-inner">
+                    <section id="main">
+                        <div class="main-body-header">
+    <h1 class="header">
+    
+    <a class="page-title-link" href="/categories/Node-js/">Node.js</a><i class="icon fa fa-angle-right"></i><a class="page-title-link" href="/categories/Node-js/로그인-연동/">로그인 연동</a>
+    </h1>
+</div>
+                        <div class="main-body-content">
+                            <article id="post-passport" class="article article-single article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+            <header class="article-header">
+                
+    
+        <h1 class="article-title" itemprop="name">
+        Passport
+        </h1>
+    
+
+            </header>
+        
+        
+            <div class="article-meta">
+                
+    <div class="article-date">
+        <a href="/2017/08/19/passport/" class="article-date">
+            <time datetime="2017-08-19T09:54:10.000Z" itemprop="datePublished">2017-08-19</time>
+        </a>
+    </div>
+
+                
+    <div class="article-tag">
+        <i class="fa fa-tag"></i>
+        <a class="tag-link" href="/tags/Node-js/">Node.js</a>, <a class="tag-link" href="/tags/passport/">passport</a>
+    </div>
+
+            </div>
+        
+        
+        <div class="article-entry" itemprop="articleBody">
+            <p><img src="/image/node.jpeg" alt=""></p>
+<h1 id="WPSN-Passport"><a href="#WPSN-Passport" class="headerlink" title="WPSN Passport"></a>WPSN Passport</h1><p>Passport는 다양한 인증 수단을 지원할 수 있도록 추상화된 인증 미들웨어입니다.  </p>
+<h2 id="Strategy"><a href="#Strategy" class="headerlink" title="Strategy"></a>Strategy</h2><p>Passport는 인증 절차를 정의하기 위해 strategy라는 개념을 사용<br>특정 인증 방식에 대해 정해진 방식대로 strategy를 구현하기만 하면, express와 같은 웹 서버와 쉽게 연동할 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// passport가 "사용자 이름과 암호 기반 인증"을 수행하도록 strategy 등록</span></div><div class="line">passport.use(<span class="keyword">new</span> LocalStrategy(<span class="function">(<span class="params">username, password, done</span>) =&gt;</span> &#123;</div><div class="line">  query.compareUser(username, password)</div><div class="line">    .then(<span class="function"><span class="params">user</span> =&gt;</span> &#123;</div><div class="line">      <span class="comment">// 인증 성공</span></div><div class="line">      done(<span class="literal">null</span>, user)</div><div class="line">    &#125;)</div><div class="line">    .catch(<span class="function"><span class="params">err</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">if</span> (err <span class="keyword">instanceof</span> query.LoginError) &#123;</div><div class="line">        <span class="comment">// 인증 실패: 사용자 책임</span></div><div class="line">        done(<span class="literal">null</span>, <span class="literal">false</span>, &#123;<span class="attr">message</span>: err.message&#125;)</div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// 인증 실패: 서버 책임</span></div><div class="line">        done(err)</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;))</div></pre></td></tr></table></figure></p>
+<p>passport에서 인증이 성공할 때는 <code>done(null,user)</code>를 사용하면 passport로 넘어가 다음으로 진행을 해준다.<br><code>compareUser</code>는 우리가 직접 만들어 주어야 한다.    </p>
+<h2 id="passport-authenticate"><a href="#passport-authenticate" class="headerlink" title="passport.authenticate()"></a><code>passport.authenticate()</code></h2><p>strategy를 이용해 passport가 인증을 위한 라우트 핸들러를 생성하게 할 수 있다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// passport-local을 통해 생성한 라우트 핸들러</span></div><div class="line">app.post(<span class="string">'/login'</span>, passport.authenticate((<span class="string">'local'</span>), &#123;</div><div class="line">  successRedirect: <span class="string">'/'</span>, <span class="comment">// 인증 성공 시 리다이렉트시킬 경로</span></div><div class="line">  failureRedirect: <span class="string">'/login'</span>, <span class="comment">// 인증 실패 시 리다이렉트시킬 경로</span></div><div class="line">  failureFlash: <span class="string">'아이디 혹은 패스워드가 잘못되었습니다.'</span> <span class="comment">// 인증 실패 시 표시할 메시지</span></div><div class="line">&#125;))</div></pre></td></tr></table></figure></p>
+<p>flash를 사용하여 메세지도 보여줄 수 있다.<br>strategy마다 한번씩 써주어야 한다.  </p>
+<h2 id="serializeUser-deserializeUser"><a href="#serializeUser-deserializeUser" class="headerlink" title="serializeUser, deserializeUser"></a><code>serializeUser</code>, <code>deserializeUser</code></h2><p>프로그램 상의 어떤 객체를 바이너리 혹은 텍스트의 형태로 변환하는 작업을 직렬화(serialization), 그 반대를 역직렬화(deserialization)라고 합니다.<br>직렬화 - 객체를 문자열로 바꿔주는 작업<br>역직렬화 - 문자열을 객체로 바꿔주는 작업<br>위의 passport와 다르게 이 두개는 한번만 사용해주면 된다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// passport가 유저 정보를 세션에 저장할 수 있도록 직렬화</span></div><div class="line">passport.serializeUser(<span class="function">(<span class="params">user, done</span>) =&gt;</span> &#123;</div><div class="line">  done(<span class="literal">null</span>, user.id)</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// passport가 세션으로부터 유저 객체를 가져올 수 있도록 역직렬화</span></div><div class="line">passport.deserializeUser(<span class="function">(<span class="params">id, done</span>) =&gt;</span> &#123;</div><div class="line">  query.getUserById(id)</div><div class="line">    .then(<span class="function"><span class="params">user</span> =&gt;</span> &#123;</div><div class="line">      <span class="keyword">if</span> (user) &#123;</div><div class="line">        done(<span class="literal">null</span>, user) <span class="comment">// req.user에 저장됨</span></div><div class="line">      &#125; <span class="keyword">else</span> &#123;</div><div class="line">        done(<span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">'해당 아이디를 가진 사용자가 없습니다.'</span>))</div><div class="line">      &#125;</div><div class="line">    &#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<p>장점은 나중에 strategy를 추가할때 좋다.  </p>
+<h2 id="req-login-req-logout"><a href="#req-login-req-logout" class="headerlink" title="req.login, req.logout"></a><code>req.login</code>, <code>req.logout</code></h2><p>위의 <code>authenticate()</code>에서 로그인을 되게 해주지만 <code>req.login</code>메소드는 회원 가입 이후에 자동으로 로그인을 시켜주려는 목적으로 사용되고 <code>req.logout</code>메소드는 현재 세션에 들어있는 인증 정보를 지우고 로그아웃을 시키는 메소드이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// login</span></div><div class="line">app.post(<span class="string">'/register'</span>, (req, res, next) =&gt; &#123;</div><div class="line">  query.createUser(req.body.username, req.body.password)</div><div class="line">    .then(<span class="function"><span class="params">user</span> =&gt;</span> &#123;</div><div class="line">      <span class="comment">// 회원 가입 시 자동으로 로그인 시키고 리다이렉트</span></div><div class="line">      req.login(user, err =&gt; &#123;</div><div class="line">        <span class="keyword">if</span> (err) &#123;</div><div class="line">          next(err)</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">          res.redirect(<span class="string">'/'</span>)</div><div class="line">        &#125;</div><div class="line">      &#125;)</div><div class="line">    &#125;)</div><div class="line">    .catch(util.flashError(req, res))</div><div class="line">&#125;)</div><div class="line"></div><div class="line"><span class="comment">// logout</span></div><div class="line">app.post(<span class="string">'/logout'</span>, (req, res) =&gt; &#123;</div><div class="line">  <span class="comment">// passport가 제공하는 `req.logout` 메소드</span></div><div class="line">  req.logout()</div><div class="line">  res.redirect(<span class="string">'/login'</span>)</div><div class="line">&#125;)</div></pre></td></tr></table></figure></p>
+<h2 id="passport-initialize"><a href="#passport-initialize" class="headerlink" title="passport.initialize()"></a><code>passport.initialize()</code></h2><p>Express 앱에서 Passport를 사용하기 위해서는 다음과 같이 미들웨어를 주입해주어야 합니다.<br>인증 과정에서 세션을 사용하지 않는다면 passport.session()은 주입하지 않아도 무방합니다.<br>맨위에 써주는 것이다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// passport 관련 미들웨어 삽입</span></div><div class="line">app.use(passport.initialize())</div><div class="line">app.use(passport.session())</div></pre></td></tr></table></figure></p>
+<p>JWT를 사용해주는 경우에는 안써주어도 된다.  </p>
+<h2 id="쿠키-이름-저장"><a href="#쿠키-이름-저장" class="headerlink" title="쿠키 이름 저장"></a>쿠키 이름 저장</h2><p>쿠키이름을 저장할 떄 프로젝트마다 다른 이름을 써주어야 나중에 구별하기 쉽다.<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">app.use(cookieSession(&#123;</div><div class="line">  name: <span class="string">'session'</span>,</div><div class="line">  keys: [<span class="string">'mysecret'</span>]</div><div class="line">&#125;))</div></pre></td></tr></table></figure></p>
+
+        </div>
+        <footer class="article-footer">
+            
+
+
+
+    <a data-url="http://yoursite.com/2017/08/19/passport/" data-id="cj7xc1jjd000kr33f6j7f4fgi" class="article-share-link"><i class="fa fa-share"></i>Share</a>
+<script>
+    (function ($) {
+        $('body').on('click', function() {
+            $('.article-share-box.on').removeClass('on');
+        }).on('click', '.article-share-link', function(e) {
+            e.stopPropagation();
+
+            var $this = $(this),
+                url = $this.attr('data-url'),
+                encodedUrl = encodeURIComponent(url),
+                id = 'article-share-box-' + $this.attr('data-id'),
+                offset = $this.offset(),
+                box;
+
+            if ($('#' + id).length) {
+                box = $('#' + id);
+
+                if (box.hasClass('on')){
+                    box.removeClass('on');
+                    return;
+                }
+            } else {
+                var html = [
+                    '<div id="' + id + '" class="article-share-box">',
+                        '<input class="article-share-input" value="' + url + '">',
+                        '<div class="article-share-links">',
+                            '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+                            '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+                            '<a href="http://pinterest.com/pin/create/button/?url=' + encodedUrl + '" class="article-share-pinterest" target="_blank" title="Pinterest"></a>',
+                            '<a href="https://plus.google.com/share?url=' + encodedUrl + '" class="article-share-google" target="_blank" title="Google+"></a>',
+                        '</div>',
+                    '</div>'
+                ].join('');
+
+              box = $(html);
+
+              $('body').append(box);
+            }
+
+            $('.article-share-box.on').hide();
+
+            box.css({
+                top: offset.top + 25,
+                left: offset.left
+            }).addClass('on');
+
+        }).on('click', '.article-share-box', function (e) {
+            e.stopPropagation();
+        }).on('click', '.article-share-box-input', function () {
+            $(this).select();
+        }).on('click', '.article-share-box-link', function (e) {
+            e.preventDefault();
+            e.stopPropagation();
+
+            window.open(this.href, 'article-share-box-window-' + Date.now(), 'width=500,height=450');
+        });
+    })(jQuery);
+</script>
+
+        </footer>
+    </div>
+</article>
+
+    <section id="comments">
+    
+        
+    <div id="disqus_thread">
+        <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    </div>
+
+    
+    </section>
+
+
+                        </div>
+                    </section>
+                    <aside id="sidebar">
+    <a class="sidebar-toggle" title="Expand Sidebar"><i class="toggle icon"></i></a>
+    <div class="sidebar-top">
+        <p>follow:</p>
+        <ul class="social-links">
+            
+                
+                <li>
+                    <a class="social-tooltip" title="facebook" href="https://www.facebook.com/younghea.kim.96" target="_blank">
+                        <i class="icon fa fa-facebook"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="google-plus" href="/" target="_blank">
+                        <i class="icon fa fa-google-plus"></i>
+                    </a>
+                </li>
+                
+            
+                
+                <li>
+                    <a class="social-tooltip" title="github" href="https://github.com/YoungHeaKim" target="_blank">
+                        <i class="icon fa fa-github"></i>
+                    </a>
+                </li>
+                
+            
+        </ul>
+    </div>
+    
+        
+<nav id="article-nav">
+    
+        <a href="/2017/08/23/git(fork)/" id="article-nav-newer" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">newer</strong>
+        <p class="article-nav-title">
+        
+            Fork 뜬 후 Branch 만들기
+        
+        </p>
+        <i class="icon fa fa-chevron-right" id="icon-chevron-right"></i>
+    </a>
+    
+    
+        <a href="/2017/08/19/oauth/" id="article-nav-older" class="article-nav-link-wrap">
+        <strong class="article-nav-caption">older</strong>
+        <p class="article-nav-title">OAuth</p>
+        <i class="icon fa fa-chevron-left" id="icon-chevron-left"></i>
+        </a>
+    
+</nav>
+
+    
+    <div class="widgets-container">
+        
+            
+                
+    <div class="widget-wrap">
+        <h3 class="widget-title">recents</h3>
+        <div class="widget">
+            <ul id="recent-post" class="">
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/23/git(fork)/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/github.png)" alt="Fork 뜬 후 Branch 만들기" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/GIT/">GIT</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/GIT/FORK/">FORK</a></p>
+                            <p class="item-title"><a href="/2017/08/23/git(fork)/" class="title">Fork 뜬 후 Branch 만들기</a></p>
+                            <p class="item-date"><time datetime="2017-08-23T09:54:10.000Z" itemprop="datePublished">2017-08-23</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/19/passport/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/node.jpeg)" alt="Passport" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Node-js/로그인-연동/">로그인 연동</a></p>
+                            <p class="item-title"><a href="/2017/08/19/passport/" class="title">Passport</a></p>
+                            <p class="item-date"><time datetime="2017-08-19T09:54:10.000Z" itemprop="datePublished">2017-08-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/19/oauth/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/node.jpeg)" alt="OAuth" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Node-js/로그인-연동/">로그인 연동</a></p>
+                            <p class="item-title"><a href="/2017/08/19/oauth/" class="title">OAuth</a></p>
+                            <p class="item-date"><time datetime="2017-08-19T09:54:10.000Z" itemprop="datePublished">2017-08-19</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/18/csrf/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/node.jpeg)" alt="CSRF공격 방어" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Node-js/CSRF-공격-방어/">CSRF 공격 방어</a></p>
+                            <p class="item-title"><a href="/2017/08/18/csrf/" class="title">CSRF공격 방어</a></p>
+                            <p class="item-date"><time datetime="2017-08-18T09:54:10.000Z" itemprop="datePublished">2017-08-18</time></p>
+                        </div>
+                    </li>
+                
+                    <li>
+                        
+                        <div class="item-thumbnail">
+                            <a href="/2017/08/18/soket/" class="thumbnail">
+    
+    
+        <span style="background-image:url(/image/node.jpeg)" alt="실시간 대화창(Soket.io)" class="thumbnail-image"></span>
+    
+    
+</a>
+
+                        </div>
+                        
+                        <div class="item-inner">
+                            <p class="item-category"><a class="article-category-link" href="/categories/Node-js/">Node.js</a><i class="icon fa fa-angle-right"></i><a class="article-category-link" href="/categories/Node-js/Soket-io/">Soket.io</a></p>
+                            <p class="item-title"><a href="/2017/08/18/soket/" class="title">실시간 대화창(Soket.io)</a></p>
+                            <p class="item-date"><time datetime="2017-08-18T09:54:10.000Z" itemprop="datePublished">2017-08-18</time></p>
+                        </div>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">categories</h3>
+        <div class="widget">
+            <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/GIT/">GIT</a><span class="category-list-count">1</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/GIT/FORK/">FORK</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/">Node.js</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/CSRF-공격-방어/">CSRF 공격 방어</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/Soket-io/">Soket.io</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/Node-js/로그인-연동/">로그인 연동</a><span class="category-list-count">2</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/">알고리즘(Algorithm)</a><span class="category-list-count">6</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/CheckPalindrom/">CheckPalindrom</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/NumPY/">NumPY</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/요일-찾기/">요일 찾기</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/원하는-숫자-찾기/">원하는 숫자 찾기</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/짝수와-홀수/">짝수와 홀수</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/알고리즘-Algorithm/최단-거리-1차원-점의-쌍-구하기/">최단 거리 1차원 점의 쌍 구하기</a><span class="category-list-count">1</span></li></ul></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">archives</h3>
+        <div class="widget">
+            <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/08/">August 2017</a><span class="archive-list-count">11</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">tags</h3>
+        <div class="widget">
+            <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/Algorithm/">Algorithm</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/BRANCH/">BRANCH</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/CSRF/">CSRF</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/FORK/">FORK</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/GIT/">GIT</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/JAVASCRIPT/">JAVASCRIPT</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Node-js/">Node.js</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/OAuth/">OAuth</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/Soket-io/">Soket.io</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/passport/">passport</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/알고리즘/">알고리즘</a><span class="tag-list-count">6</span></li></ul>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-float">
+        <h3 class="widget-title">tag cloud</h3>
+        <div class="widget tagcloud">
+            <a href="/tags/Algorithm/" style="font-size: 20px;">Algorithm</a> <a href="/tags/BRANCH/" style="font-size: 10px;">BRANCH</a> <a href="/tags/CSRF/" style="font-size: 10px;">CSRF</a> <a href="/tags/FORK/" style="font-size: 10px;">FORK</a> <a href="/tags/GIT/" style="font-size: 10px;">GIT</a> <a href="/tags/JAVASCRIPT/" style="font-size: 20px;">JAVASCRIPT</a> <a href="/tags/Node-js/" style="font-size: 15px;">Node.js</a> <a href="/tags/OAuth/" style="font-size: 10px;">OAuth</a> <a href="/tags/Soket-io/" style="font-size: 10px;">Soket.io</a> <a href="/tags/passport/" style="font-size: 10px;">passport</a> <a href="/tags/알고리즘/" style="font-size: 20px;">알고리즘</a>
+        </div>
+    </div>
+
+
+            
+                
+    <div class="widget-wrap widget-list">
+        <h3 class="widget-title">links</h3>
+        <div class="widget">
+            <ul>
+                
+                    <li>
+                        <a href="http://hexo.io">Hexo</a>
+                    </li>
+                
+            </ul>
+        </div>
+    </div>
+
+
+            
+        
+    </div>
+</aside>
+                </div>
+            </div>
+        </div>
+        <footer id="footer">
+    <div class="container">
+        <div class="container-inner">
+            <a id="back-to-top" href="javascript:;"><i class="icon fa fa-angle-up"></i></a>
+            <div class="credit">
+                <h1 class="logo-wrap">
+                    <a href="/" class="logo"></a>
+                </h1>
+                <p>&copy; 2017 YoungHeaKim&#39;s Blog</p>
+                <p>Powered by <a href="//hexo.io/" target="_blank">Hexo</a>. Theme by <a href="//github.com/ppoffice" target="_blank">PPOffice</a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+        
+    
+    <script>
+    var disqus_shortname = 'hexo-theme-hueman';
+    
+    
+    var disqus_url = 'http://yoursite.com/2017/08/19/passport/';
+    
+    (function() {
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+
+
+
+
+    
+        <script src="/libs/lightgallery/js/lightgallery.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-thumbnail.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-pager.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-autoplay.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-fullscreen.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-zoom.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-hash.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-share.min.js"></script>
+        <script src="/libs/lightgallery/js/lg-video.min.js"></script>
+    
+    
+        <script src="/libs/justified-gallery/jquery.justifiedGallery.min.js"></script>
+    
+    
+
+
+
+<!-- Custom Scripts -->
+<script src="/js/main.js"></script>
+
+    </div>
+</body>
+</html>
